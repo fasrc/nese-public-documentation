@@ -11,8 +11,8 @@ NESE
    :caption: Welcome
    :numbered:
 
-   welcome/*
-   ceph/*
+   welcome/welcome
+   ceph/rbd
    
 
 
