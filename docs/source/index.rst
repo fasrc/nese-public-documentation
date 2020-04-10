@@ -12,5 +12,8 @@ NESE
 
    welcome/welcome
    welcome/gettinghelp
+   ceph/block
+   ceph/file
+   ceph/object
 
 
