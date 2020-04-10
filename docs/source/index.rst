@@ -10,8 +10,11 @@ NESE
    :maxdepth: 3
    :caption: Docs
    
-   welcome/*
-   ceph/*
+   welcome/welcome
+   welcome/help
+   ceph/rbd
+   ceph/globus
+   ceph/s3
    
 
 
