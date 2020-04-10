@@ -1,6 +1,7 @@
 
-
-# RADOS Block Device
+**********
+RADOS Block Device
+**********
 
 RBD allows Ceph object storage mapping to local block devices using the rbd kernel module or mapping to a VM via hypervisor which is utilizing direct librbd access to the object storage. The mapped block devices could subsequently be accessed for block storage or formatted with one of the many Linux file systems, therefore exposing the storage via standard file access methods.
 
@@ -15,16 +16,16 @@ To reduce incompatibility issues it's best to use the same version of Ceph clien
 
 After obtaining and installing the ceph-common package, make sure that the /etc/ceph/ceph.conf general section contains cluster monitor hosts line and the client section contains rbd default data and metadata pool names:
 
-  mon host = [v2:10.255.116.11:3300,v1:10.255.116.11:6789],[v2:10.255.116.12:3300,v1:10.255.116.12:6789],[v2:10.255.116.13:3300,v1:10.255.116.13:6789],[v2:10.255.116.14:3300,v1:10.255.116.14:6789],[v2:10.255.116.15:3300,v1:10.255.116.15:6789]
+`mon host = [v2:10.255.116.11:3300,v1:10.255.116.11:6789],[v2:10.255.116.12:3300,v1:10.255.116.12:6789],[v2:10.255.116.13:3300,v1:10.255.116.13:6789],[v2:10.255.116.14:3300,v1:10.255.116.14:6789],[v2:10.255.116.15:3300,v1:10.255.116.15:6789]`
 
   [client]
   rbd default data pool = <data-pool>
   rbd default pool = <metadata-pool>
 
 Create /etc/ceph/ceph.keyring file and limit access to root only:
-  touch /etc/ceph/ceph.keyring
-  chown root:root /etc/ceph/ceph.keyring
-  chmod 0600 /etc/ceph/ceph.keyring
+> touch /etc/ceph/ceph.keyring
+> chown root:root /etc/ceph/ceph.keyring
+> chmod 0600 /etc/ceph/ceph.keyring
 
 Put your access key in the /etc/ceph/ceph.keyring file:
   [client.<uid>]
