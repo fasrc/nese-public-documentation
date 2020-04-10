@@ -8,11 +8,10 @@ NESE
 
 .. toctree::
    :maxdepth: 3
-   :caption: Welcome
-   :numbered:
-
-   welcome/welcome
-   ceph/rbd
+   :caption: Docs
+   
+   welcome/*
+   ceph/*
    
 
 
