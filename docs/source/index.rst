@@ -7,7 +7,7 @@ NESE
 ===========================================
 
 .. toctree::
-   :maxdepth: 5
+   :maxdepth: 2
    :caption: Welcome
 
    welcome/welcome
