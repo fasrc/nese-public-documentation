@@ -9,7 +9,8 @@ As Ceph architecture does not allow frequent creation and reconfiguration of poo
 
 Please contact Milan Kupcevic to establish and obtain your institutional uid, access key, RBD data pool and RBD metadata pool.
 
-## General RBD Access Setup
+General RBD Access Setup
+----------
 Fast direct network connection to the NESE OSD nodes located in the cluster data network 10.255.116.0/23 is required for RBD usage. For more info about establishing such a connection see Direct Network Connection section. 
 
 To reduce incompatibility issues it's best to use the same version of Ceph client tools as the NESE Ceph cluster runs on. NESE cluster is currently running Ceph version 14 (Nautilus). Ceph RBD client tools are provided by the ceph-common package distributed by various linux distributions and available directly from the upstream development repositories located at <http://download.ceph.com/>.
