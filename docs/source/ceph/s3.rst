@@ -1,6 +1,6 @@
-**
+***
 S3
-**
+***
 
 RBD allows Ceph object storage mapping to local block devices using the rbd kernel module or mapping to a VM via hypervisor which is utilizing direct librbd access to the object storage. The mapped block devices could subsequently be accessed for block storage or formatted with one of the many Linux file systems, therefore exposing the storage via standard file access methods.
 
