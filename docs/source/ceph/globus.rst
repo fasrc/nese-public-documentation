@@ -15,14 +15,14 @@ Researchers use their Globus accounts to transfer data between their local endpo
 
 Delegated Responsibilities
 --------------------------
-**NESE Coordinator**
-- At university, school or department level
-  - Holds a Globus service account 
-  - Holds a NESE service account with a Unix password
-- Creates shared endpoints (shared collections) using the Globus service account
-- Assigns administrator roles to Globus users at shared collection level
-- Familiar with Globus interface and affairs
-- Answers user’s questions
+NESE Coordinator
+	At university, school or department level
+  		- Holds a Globus service account 
+  		- Holds a NESE service account with a Unix password
+	Creates shared endpoints (shared collections) using the Globus service account
+	Assigns administrator roles to Globus users at shared collection level
+	Familiar with Globus interface and affairs
+	Answers user’s questions
 
 **Shared Collection Administrator**
 
