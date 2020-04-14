@@ -23,8 +23,9 @@ After obtaining and installing the ceph-common package, make sure that the /etc/
   [client]
   rbd default data pool = <data-pool>
   rbd default pool = <metadata-pool>
-
-Create /etc/ceph/ceph.keyring file and limit access to root only::
+  
+Create /etc/ceph/ceph.keyring file and limit access to root only:
+::
   touch /etc/ceph/ceph.keyring
   chown root:root /etc/ceph/ceph.keyring
   chmod 0600 /etc/ceph/ceph.keyring
