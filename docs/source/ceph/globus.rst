@@ -15,6 +15,7 @@ Researchers use their Globus accounts to transfer data between their local endpo
 
 Delegated Responsibilities
 --------------------------
+
 NESE Coordinator
 	At university, school or department level
   		- Holds a Globus service account 
