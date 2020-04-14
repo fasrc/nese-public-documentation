@@ -16,7 +16,6 @@ Researchers use their Globus accounts to transfer data between their local endpo
 Delegated Responsibilities
 --------------------------
 **NESE Coordinator**
-
 - At university, school or department level
   - Holds a Globus service account 
   - Holds a NESE service account with a Unix password
@@ -48,12 +47,13 @@ To facilitate transfers between the NESE hosted Globus endpoints and your local 
 
 **NESE hosted Globus endpoint types**
 
-#. Managed endpoint (institutional endpoint)
+1. Managed endpoint (institutional endpoint)
   - Not used by general Globus audience
   - Hosts shared endpoints (shared collections)
   - Facilitates shared endpoint creation
      - NESE Unix account authentication required
-#. Shared endpoint (shared collection)
+
+2. Shared endpoint (shared collection)
   - Readable and writable by any authorized Globus user
   - Administered by Globus users having an administrator role assigned
   - Access control administered at subdirectory level
