@@ -24,39 +24,42 @@ After obtaining and installing the ceph-common package, make sure that the /etc/
   rbd default data pool = <data-pool>
   rbd default pool = <metadata-pool>
   
-Create /etc/ceph/ceph.keyring file and limit access to root only:
-::
+Create /etc/ceph/ceph.keyring file and limit access to root only::
+
   touch /etc/ceph/ceph.keyring
   chown root:root /etc/ceph/ceph.keyring
   chmod 0600 /etc/ceph/ceph.keyring
 
-Put your access key in the /etc/ceph/ceph.keyring file:
-::
+Put your access key in the /etc/ceph/ceph.keyring file::
+
   [client.<uid>]
    key = <cephx-access-key>
 
-Test direct access to the NESE ceph cluster:
-::
+Test direct access to the NESE ceph cluster::
+
   ceph --id <uid> status
 
-Check quotas set on your data and metadata pools:
-::
+Check quotas set on your data and metadata pools::
+
   ceph --id <uid> osd pool get-quota <data-pool>
   ceph --id <uid> osd pool get-quota <metadata-pool>
 
 RBD Images
 ----------
 Create a new RBD image::
+
   rbd --id <uid> create <image> --size 4T 
 
 Get info about an image::
 
   rbd --id <uid> info <image>
 
-List all RBD images:
+List all RBD images::
+
   rbd --id <uid> list
 
 List current usage per image::
+
   rbd --id <uid> du
 
 Manually map RBD devices::
@@ -65,28 +68,36 @@ Manually map RBD devices::
 If your kernel does not support all the features enabled on the given image you might get an error message explaining how to proceed. At this point you should upgrade your kernel to a newer version or disable the mentioned features per instruction provided in the error message.
 
 List all mapped devices::
+
   rbd device list
 
 The mapped rbd device persistent naming follows this pattern::
+
   /dev/rbd/<metadata-pool>/<image>
 
 At this point you can create a file system on the block device::
+
   mkfs.xfs /dev/rbd/<metadata-pool>/<image>
 
 Auto-map and auto mount RBD devices on boot
 Use noauto and noatime options in the /etc/fstab file::
+
   /dev/rbd/<metadata-pool>/<image> /mnt/dir  xfs  noauto,noatime  0  0
 
 Enable rbdmap service::
+
   systemctl enable rbdmap.service
 
 List each rbd device on a separate line in /etc/ceph/rbdmap file::
+
   <metadata-pool>/<image-name>  id=<uid>,keyring=/etc/ceph/ceph.keyring
 
 At this point you can test device mapping and mounting manually::
+
   rbdmap map /dev/rbd/<metadata-pool>/<image>
 
 Or unmount and unmap a device manually::
+
   rbdmap unmap /dev/rbd/<metadata-pool>/<image>
 
 At every system boot the rbdmap service will map all rbd devices listed in the /etc/ceph/rbdmap file and then mount only those listed in the /etc/fstab file.
@@ -94,14 +105,18 @@ At every system boot the rbdmap service will map all rbd devices listed in the /
 RBD for Virtual Machines
 ------------------------
 QEMU/KVM
-Create a new QEMU RBD image:
-  $> qemu-img create -f raw rbd:<metadata-pool>/<image>:id=<uid> 10G
+Create a new QEMU RBD image::
 
-Get the QEMU image info:
-  $> qemu-img info rbd:<metadata-pool>/<image>:id=<uid>
+  qemu-img create -f raw rbd:<metadata-pool>/<image>:id=<uid> 10G
 
-Boot the VM up:
-  $> qemu -m 2048 -drive format=raw,file=rbd:<metadata-pool>/<image>:id=<uid>
+Get the QEMU image info::
 
-Resize the QEMU image:
-  $> qemu-img resize rbd:<metadata-pool>/<image>:id=<uid> 15G
+  qemu-img info rbd:<metadata-pool>/<image>:id=<uid>
+
+Boot the VM up::
+
+  qemu -m 2048 -drive format=raw,file=rbd:<metadata-pool>/<image>:id=<uid>
+
+Resize the QEMU image::
+
+  qemu-img resize rbd:<metadata-pool>/<image>:id=<uid> 15G
