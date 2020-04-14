@@ -30,14 +30,17 @@ Create /etc/ceph/ceph.keyring file and limit access to root only:
   chown root:root /etc/ceph/ceph.keyring
   chmod 0600 /etc/ceph/ceph.keyring
 
-Put your access key in the /etc/ceph/ceph.keyring file::
+Put your access key in the /etc/ceph/ceph.keyring file:
+::
   [client.<uid>]
    key = <cephx-access-key>
 
-Test direct access to the NESE ceph cluster::
+Test direct access to the NESE ceph cluster:
+::
   ceph --id <uid> status
 
-Check quotas set on your data and metadata pools::
+Check quotas set on your data and metadata pools:
+::
   ceph --id <uid> osd pool get-quota <data-pool>
   ceph --id <uid> osd pool get-quota <metadata-pool>
 
@@ -47,9 +50,10 @@ Create a new RBD image::
   rbd --id <uid> create <image> --size 4T 
 
 Get info about an image::
+
   rbd --id <uid> info <image>
 
-List all RBD images::
+List all RBD images:
   rbd --id <uid> list
 
 List current usage per image::
